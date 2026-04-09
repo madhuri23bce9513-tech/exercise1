@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Color Crosswise Tiled Pattern</title>
+  <style>
+    body {
+      background-color: #b0dfe6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 50px);
+      grid-template-rows: repeat(6, 50px);
+      gap: 3px;
+      border: 2px solid #ccc;
+    }
+    .tile {
+      width: 50px;
+      height: 50px;
+    }
+    .tile.orange { background-color: #d4632a; }
+    .tile.beige { background-color: #e5b988; }
+    .tile.brown { background-color: #8b4513; }
+  </style>
+</head>
+<body>
+  <div class="tile-grid" id="grid"></div>
+  <script>
+    const colors = ['orange', 'beige', 'brown'];
+    const grid = document.getElementById('grid');
+    for (let row = 0; row < 6; row++) {
+      for (let col = 0; col < 6; col++) {
+        const div = document.createElement('div');
+        const index = (row + col) % 3;
+        div.className = `tile ${colors[index]}`;
+        grid.appendChild(div);
+      }
+    }
+  </script>
+</body>
+</html>
